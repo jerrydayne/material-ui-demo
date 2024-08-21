@@ -1,8 +1,13 @@
-import { Box } from "@mui/material"
+import { Box, Divider, Stack } from "@mui/material"
 
 const MuiLayout = () => {
   return (
-    <>
+    <Stack
+        spacing={2}
+        direction='row'
+        sx={{ border: '1px solid' }}
+        divider={<Divider orientation='vertical' flexItem />}
+    >
       <Box
       sx={{
         backgroundColor: 'primary.main',
@@ -27,7 +32,7 @@ const MuiLayout = () => {
       >
         @jerrydayne
       </Box>
-    </>
+    </Stack>
   )
 }
 
