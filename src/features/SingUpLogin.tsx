@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box, Button, TextField, Typography } from '@mui/material'
+import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
-import { HowToRegOutlined, LoginOutlined } from '@mui/icons-material'
+import { HowToRegOutlined, LoginOutlined, LockReset } from '@mui/icons-material'
 
 const SingUpLogin = () => {
     const [signUp, setSignUp] = useState(false)
@@ -88,11 +88,17 @@ const SingUpLogin = () => {
                 type='submit'
                 endIcon={signUp ? <HowToRegOutlined /> : <LoginOutlined />}
             >{signUp ? "Create Account" : "Login"}</Button>
-            <Button
-                onClick={resetFormInput}
-                sx={{ marginTop: 3, borderRadius: 3 }}
-                endIcon={signUp ? <LoginOutlined /> : <HowToRegOutlined />}
-            >{signUp ? "Login instead" : "Create a new account"}</Button>
+            <Stack direction='row' justifyContent={'space-evenly'}>
+                <Button
+                    onClick={resetFormInput}
+                    sx={{ marginTop: 3, borderRadius: 3 }}
+                    endIcon={signUp ? <LoginOutlined /> : <HowToRegOutlined />}
+                >{signUp ? "Login instead" : "Create a new account"}</Button>
+                {!signUp && <Button
+                    sx={{ marginTop: 3, borderRadius: 3 }}
+                    endIcon={<LockReset />}
+                >forgot password</Button>}
+            </Stack>
         </Box>
       </form>
     </div>
